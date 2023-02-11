@@ -78,21 +78,21 @@ $('.profile-photo9').click(function() {
    
     
   
-      var video = document.getElementById("video");
-    var observer = new IntersectionObserver(function(entries) {
-      entries.forEach(function(entry) {
-        if (entry.isIntersecting) {
+     // var video = document.getElementById("video");
+    //var observer = new IntersectionObserver(function(entries) {
+     // entries.forEach(function(entry) {
+      //  if (entry.isIntersecting) {
           // check if the video is in picture-in- picture mode
-          if (document.pictureInPictureElement === video) {
+       //   if (document.pictureInPictureElement === video) {
             // exit picture-in- picture mode
-            document.exitPictureInPicture();
-          }
-        } else {
-          video.requestPictureInPicture();
-        }
-      });
-    });
-    observer.observe(video);
+       //     document.exitPictureInPicture();
+      //    }
+      //  } else {
+       //   video.requestPictureInPicture();
+      //  }
+     // });
+   // });
+   // observer.observe(video);
       // Select all navigation buttons
       const navLinks = document.querySelectorAll(".navigation a");
   
