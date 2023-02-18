@@ -805,7 +805,7 @@ button.btn-primary:hover {
   border-radius: 10px;
   position: fixed;
   z-index: 3;
-  top: 15%;
+  top: 10%;
   justify-content: center;
   align-items: center;
   padding: 10px;
