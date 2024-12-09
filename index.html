@@ -1,7 +1,9 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta name="google-site-verification" content="QkpMaWDFuZuI5MimNPYWmUB5SEq-LM4bh5lB3sew-6E" />
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<meta name="google-site-verification" content="QkpMaWDFuZuI5MimNPYWmUB5SEq-LM4bh5lB3sew-6E" />
     <link rel="apple-touch-icon" sizes="57x57" href="icon/apple-icon-57x57.png">
 <link rel="apple-touch-icon" sizes="60x60" href="icon/apple-icon-60x60.png">
 <link rel="apple-touch-icon" sizes="72x72" href="icon/apple-icon-72x72.png">
@@ -18,648 +20,475 @@
 <link rel="manifest" href="icon/manifest.json">
 <meta name="msapplication-TileColor" content="#ffffff">
 <meta name="msapplication-TileImage" content="icon/ms-icon-144x144.png">
-<meta name="theme-color" content="#ffffff">
-   <title>Ayush Adhikari</title>
-   
-
-   <link rel="stylesheet" href="css/style.css">
-   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
-    <!-- Libraries Stylesheet -->
-    <link href="lib/owlcarousel/assets/owl.carousel.min.css" >
-    <link href="lib/lightbox/css/lightbox.min.css" >
-    <!-- Google Web Fonts -->
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet"> 
-
+	<title>Ayush Adhikari</title>
+	<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+	<link rel="stylesheet" href="style.css">
+	<link rel="stylesheet" href="stylepc.css">
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
 </head>
 <body>
-     <!-- Navigation -->
-     <nav class="navigation">
-        <a href="#qualification">Education</a>
-        <a href="#skills">Skills</a>
-        <a href="#projects">Projects</a>
-        <a href="#about">About Me</a>
-        <a href="#contact-us">Contact Me</a>
-        <a href="#gallery">Gallery and Photos</a>
-        
-      </nav>
-      
-  <div class="container" id="main-p-1">
-    <div class="cover-photo"></div>
-    <div class="profile-photo"></div>
-    <div class="name-role">
-      <h1>Ayush Adhikari</h1>
-      <h2>Full Stack Developer</h2>
-      
-    </div>
-    <!-- About Start -->
-    <div class="container-fluid py-5"  id="about">
-      <div class="container">
-          <div class="position-relative d-flex align-items-center justify-content-center">
-              <h1 class="display-1 text-uppercase text-white" style="-webkit-text-stroke: 1px #dee2e6;">About</h1>
-              <h1 class="position-absolute text-uppercase text-primary">About Me</h1>
-          </div>
-          <div class="row align-items-center">
-              <div class="col-lg-5 pb-4 pb-lg-0">
-                  <img class="img-fluid rounded w-100" src="./images/about.jpg" alt="">
-              </div>
-              <div class="col-lg-7">
-                  <h3 class="mb-4">Ayush Adhikari</h3>
-                  <p>Hello there. I am Ayush Adhiakri from Anamnagar, Kathmandu. I am a self taught programmer and a game designer</p>
-                  <div class="row mb-3">
-                      <div class="col-sm-6 py-2"><h6>Name: <span class="text-secondary">Ayush Adhikari</span></h6></div>
-                      <div class="col-sm-6 py-2"><h6>Birthday: <span class="text-secondary">12 Septmber 2002</span></h6></div>
-                      <div class="col-sm-6 py-2"><h6>Degree: <span class="text-secondary">+2 Passed</span></h6></div>
-                      <div class="col-sm-6 py-2"><h6>Phone: <span class="text-secondary">+977 9866156417</span></h6></div>
-                      <div class="col-sm-6 py-2"><h6>Email: <span class="text-secondary">adhikariayush777@gmail.com</span></h6></div>
-                      <div class="col-sm-6 py-2"><h6>Address: <span class="text-secondary">Anamnagar Kathmandu, Nepal</span></h6></div>
-                      <div class="col-sm-6 py-2"><h6>Freelance: <span class="text-secondary" style="color: green;">Available</span></h6></div>
-                  </div>
-                  <a href="https://www.upwork.com/freelancers/~01896f5c9ed0154106" class="btn blue btn-outline-primary mr-4">Hire Me</a>
-                  <a href="https://www.linkedin.com/in/art-by-ayush-adhikari-3271b0216/" class="btn btn-outline-primary">Learn More</a>
-              </div>
-          </div>
+	
+ 	<canvas id="particle-canvas"></canvas>
+	 <canvas id="mouse-effects-canvas"></canvas>
+	
+		<button class = "my-button"  type="button" >
+			<img src="./Images/image1.png" alt="Button Image" id="myImage">
+		  </button>
+
+		  <div class="navbar" id="navbar">
+			<!-- navigation links here -->
+			<a class="link-p-1" href="#Ayush">ABOUT</a>
+			<a class="link-p-2" href="#Education">EDUCATION</a>
+			<a class="link-p-6" href="#Projects">PROJECTS</a>
+			<a class="link-p-3"href="#Skills">SKILLS</a>
+			<a class="link-p-4"href="#gallery-container">GALLERY</a>
+			<a class="link-p-5"href="#Contact">CONTACT</a>
+		  </div>
+<div id="Ayush" class="cointainer">
+	<div class="mblnav">
+		  <div class="icon"></div>
+		  <h2 id="topic">Ayush</h2>
+		</div>
+		
+		  <div id="Ayush"  class="inform-p" data-section-name="Ayush">
+			<div class="typewriter">
+				<h1 id="text" style="display: inline-block;"></h1>
+			  </div>
+			<h2>I am Ayush Adhikari,</h2>
+			<p> a multi-talented sketch artist and web developer with diverse skills in programming, 3D modeling, game design, and back-end development. I aim to revolutionize customer engagement through my creative and technical abilities.</p>
+			<div class="button-container">
+				<a href="https://www.linkedin.com/in/aa-ayushadhikari" class="learnmore" target="_blank"><p style="opacity: 1;">LearnMore.</p></a>
+				<a href="https://www.youtube.com/@adhikari777" class="circlePlaybtn" target="_blank"><p style="opacity: 1;">PlayVideo.</p></a>
+			  </div>
+			
+		  </div>
+		  <div class="bgcircle"></div>
+		  <div class="bgcircle2"></div>
+		  <div class="bgcircle3"></div>
+
+			<div class="profile">
+				</div>
+				<div class="contact-c-p-m-1">
+				
+				</div>
+		</div>
+		
+		<div id="Education" class="Education" data-section-name="Education">
+			<div class="graphbg" data-aos="fade-up">
+				<div class="graphbg2" data-aos="fade-up">
+						<div class="fr-top" data-aos="fade-up">
+							<div class="fr-top-in-1" data-aos="fade-up">
+								<div class="fr-top-in-1-circle"data-aos="fade-up">
+
+								</div>
+								<p style="top: 2px; left: 40px; opacity: 1; ">School</p>
+							</div>
+							<div class="fr-top-in-2"data-aos="fade-up">
+								<div class="fr-top-in-2-circle"data-aos="fade-up">
+
+								</div>
+								<p style="top: 12px; left: 43px; opacity: 1; ">Date</p>
+							</div>
+						</div>
+						<div class="fr-dwn" data-aos="fade-up">
+							<div class="fr-dwn-num">
+								<small>17<br>14<br>11<br>09<br>06<br>03<br>00</small>
+							  </div>
+							  
+							  <div class="fr-dwn-little">
+								<div class="fr-dwn-little-value" data-value="2006-2017"></div>
+								<div class="fr-dwn-little-circle"></div>
+							  </div>
+							  
+							  <div class="fr-dwn-adarsha">
+								<div class="fr-dwn-adarsha-value" data-value="2017-2020"></div>
+								<div class="fr-dwn-little-circle"></div>
+							  </div>
+							  
+							  <div class="fr-dwn-kmc">
+								<div class="fr-dwn-kmc-value" data-value="2020-2022"></div>
+								<div class="fr-dwn-little-circle"></div>
+							  </div>
+							  
+							  <div class="fr-dwn-running">
+								<div class="fr-dwn-running-value" data-value="2022-2026"></div>
+								<div class="fr-dwn-little-circle"></div>
+							  </div>
+						</div>
+				</div>
+			</div >
+			<p style="opacity: 0.5;" data-aos="fade-up" >"Education is not the learning of facts, but the training of the mind to think. The most important thing is not to stop questioning. Curiosity has its own reason for existing."<br>   <span class="span-p">-- Albert Einstein</span></p>
+			<div class="school-p"data-aos="fade-up">
+				<div class="btn1-p"data-aos="fade-up"><button class="btn-little-angles"data-aos="fade-up"></button>
+				<h3 data-aos="fade-up">Little Angles School<small style="opacity: 0.5;"data-aos="fade-up"><br>Rapti - 1 pulchock, Dang<br>2006 - 2017</small></h3>
+				</div>
+				<div class="btn1-p2"data-aos="fade-up"><button class="btn-adarsha-school"data-aos="fade-up"></button>
+				<h3 data-aos="fade-up">Adarsha Boarding School<small style="opacity: 0.5;"data-aos="fade-up"><br>Buddhabhumi - 9 - Imiliya, Kapilvastu<br>2017 - 2020</small></h3>
+				</div>
+				<div class="btn1-p2"data-aos="fade-up"><button class="btn-KMC"data-aos="fade-up"></button>
+					<h3 data-aos="fade-up">Kathmandu Model College<small style="opacity: 0.5;"data-aos="fade-up"><br>Bagbazar, Kathmandu<br>2020 - 2022</small></h3>
+				</div>
+				<div class="btn1-p2"data-aos="fade-up"><button class="btn-running"data-aos="fade-up"></button>
+					<h3 data-aos="fade-up">Mahendra Multiple Campus<small style="opacity: 0.5;"data-aos="fade-up"><br>Dang<br>2022-2026</small></h3>
+				</div>
+			</div>
+		</div>
+		<div id="Projects" data-section-name="Projects" data-aos="fade-up">
+			<!-- Costom Projects Meta-data -->
+			<div class="blankcover"></div>
+			<div class="project-1-a"data-aos="fade-up">
+				<div class="project-1-a-top"data-aos="fade-up">
+					<div class="projecet-1-a-uses"data-aos="fade-up">
+						<div class="project-1-a-uses-1"data-aos="fade-up"></div>
+						<div class="project-1-a-uses-2"data-aos="fade-up"></div>
+						<div class="project-1-a-uses-3"data-aos="fade-up"></div>
+						<div class="project-1-a-uses-4"data-aos="fade-up"></div>
+					</div>
+					<div class="projecet-1-a-photo-1"data-aos="fade-up"></div>
+					<div class="projecet-1-a-photo-2"data-aos="fade-up"><div class="upwork-p"data-aos="fade-up"></div></div>
+				</div>
+				<div class="project-1-a-down"data-aos="fade-up">
+					<p>Unleashing the power of next-generation gaming with Unreal Engine 5! Check out my latest project featuring the stunning UE5 Graphics..                                 -2022
+					</p>
+				</div>
+			</div>
+			<div class="project-1-a"data-aos="fade-up">
+				<div class="project-1-a-top"data-aos="fade-up">
+					<div class="projecet-1-a-uses"data-aos="fade-up">
+						<div class="project-2-a-uses-1"data-aos="fade-up"></div>
+						<div class="project-2-a-uses-2"data-aos="fade-up"></div>
+						<div class="project-2-a-uses-3"data-aos="fade-up"></div>
+						<div class="project-2-a-uses-4"data-aos="fade-up"></div>
+					</div>
+					<div class="projecet-2-a-photo-1"data-aos="fade-up"></div>
+					
+				</div>
+				<div class="project-1-a-down"data-aos="fade-up">
+					<p>Experience AI like never before with Anna - a sophisticated model developed using Python.    -2021
+					</p>
+				</div>
+			</div>
+			<div class="project-1-a"data-aos="fade-up">
+				<div class="project-1-a-top"data-aos="fade-up">
+					<div class="projecet-1-a-uses"data-aos="fade-up">
+						<div class="project-4-a-uses-1"data-aos="fade-up"></div>
+						<div class="project-4-a-uses-2"data-aos="fade-up"></div>
+						<div class="project-4-a-uses-3"data-aos="fade-up"></div>
+						<div class="project-4-a-uses-4"data-aos="fade-up"></div>
+					</div>
+					<div class="projecet-3-a-photo-1"data-aos="fade-up"></div>
+					
+				</div>
+				<div class="project-1-a-down"data-aos="fade-up">
+					<p>Transcend: Elevating User Experiences. Check out my transformative UI/UX project!    -2021
+					</p>
+				</div>
+				<a href="https://www.linkedin.com/in/aa-ayushadhikari" class="loadprojects-2-more" target="_blank"><p style="opacity: 1;">ExplorMore.</p></a>
+			</div>
+			
+		</div>
+<div id="Skills" data-section-name="Skills"data-aos="fade-up">
+			<div class="down-skills-make"></div>
+			<!-- My sets of Skills are here -->
+			<div class="sets-of-skills-1-p" data-aos="fade-up">
+  <div class="lable-p" data-aos="fade-up">
+    <p>UI/UX & Graphics Design..</p>
+  </div>
+  <div class="all-skills-app-1-p" data-aos="fade-up">
+    <div class="skills-row">
+      <div class="a1-skills-app-1"></div>
+      <div class="skill-progress">
+        <div class="progress-fill" style="width: 90%"></div>
       </div>
-  </div>
-  <!-- About End -->
-     
-
+      <span class="progress-text">90%</span>
+    </div>
     
-    <!-- Qualification Start -->
-    <div class="container-fluid py-5" id="qualification">
-      <div class="container">
-          <div class="position-relative d-flex align-items-center justify-content-center">
-            
-             
-          </div>
-          <div class="row align-items-center">
-              <div class="col-lg-6">
-                  <h3 class="mb-4"style="color: rgb(0, 153, 255);"><b>EDUCATION</b></h3>
-                  <div class="border-left border-primary pt-2 pl-4 ml-2">
-                      <div class="position-relative ex-me mb-4">
-                          <i class="far fa-dot-circle text-primary position-absolute" style="top: 2px; left: -35px; font-size: 22px;"></i>
-                          <h5 class="font-weight-bold mb-1">Lower Secondary</h5>
-                          <p class="mb-2"><strong>Shree Deukheri Valley Secondary School- Dang,Bhaluwang</strong> | <small>2006 - 2017</small></p>
-                          <p></p>
-                      </div>
-                      <div class="position-relative ex-me mb-4">
-                          <i class="far fa-dot-circle text-primary position-absolute" style="top: 2px; left: -35px;  font-size: 22px;"></i>
-                          <h5 class="font-weight-bold mb-1">Secondary School</h5>
-                          <p class="mb-2"><strong>Adarsha English Boarding School- Kapilvastu,Imiliya</strong> | <small>2017 - 2020</small></p>
-                          <p>I completed my 10 class from this school</p>
-                      </div>
-                      <div class="position-relative ex-me mb-4">
-                          <i class="far fa-dot-circle text-primary position-absolute" style="top: 2px; left: -35px;  font-size: 22px;"></i>
-                          <h5 class="font-weight-bold mb-1">+2 Level</h5>
-                          <p class="mb-2"><strong>Kathmandu Model Higher Secondary School- Bagbazar,Kathmandu</strong> | <small>2020 - 2021</small></p>
-                          <p>I completed my +2 level from KMC, an ISO certified college in Nepal</p>
-                      </div>
-                  </div>
-              </div>
-              
-          </div>
+    <div class="skills-row">
+      <div class="a1-skills-app-2"></div>
+      <div class="skill-progress">
+        <div class="progress-fill" style="width: 85%"></div>
       </div>
-  </div>
-  <!-- Qualification End -->
-  
-    <h3 id="skills"style="color: rgb(0, 153, 255);"><b>SKILLS</b></h3>
-    <ul class="skills">
-      <li class="skills-p">JavaScript</li>
-      <li class="skills-p">React</li>
-      <li class="skills-p">Node.js</li>
-      <li class="skills-p">C#</li>
-      <li class="skills-p">C,C++</li>
-      <li class="skills-p">CSS</li>
-      <li class="skills-p">HTML</li>
-    </ul>
-  
-    <h3 id="projects"style="color: rgb(0, 153, 255);"><b>PROJECTS</b></h3>
-    <div class="projects">
-      
-        <div class="projects-p">
-            <!--<p class="something">   Unity-Development   </p>-->
-            <a href="#unity"><p class="something">   Unity-Development   </p></a>
-        <div class="androidimg"></div>
-       
+      <span class="progress-text">85%</span>
     </div>
     
-      
-      
-        <div class="projects-p">
-            <a href="#react"><p class="something">  React   </p></a>
-            <div class="reactimg"></div>
-        </div>
-     
-      
-        <div class="projects-p">
-            <a href="#web3"><p class="something"> Web3-Development  </p></a>
-            <div class="web3img"></div>
-        </div>
-      
-    </div>
-    <h3 id="gallery" style="color: rgb(0, 153, 255);"><b>ART-GALLERY</b></h3>
-   <div class="gallery" id="gallery">
-    <div class="photos-p">
-      
-      <div  class="profile-photo1"></div>
-      <a href="images/photo1.jpg" class="imagetext" >View</a>
-    </div>
-    <div class="photos-p">
-      <div class="profile-photo2"></div>
-      <a href="images/photo2.jpg" class="imagetext" >View</a>
-    </div>
-    <div class="photos-p">
-      <div class="profile-photo3"></div>
-      <a href="images/photo3.jpg" class="imagetext" >View</a>
-    </div>
-    <div class="photos-p">
-      <div class="profile-photo4"></div>
-      <a href="images/photo4.jpg" class="imagetext" >View</a>
-    </div>
-    </div>
-    <div class="gallery2" id="gallery">
-      <div class="photos-p">
-        <div class="profile-photo5"></div>
-        <a href="images/photo5.jpg" class="imagetext" >View</a>
+    <div class="skills-row">
+      <div class="a1-skills-app-3"></div>
+      <div class="skill-progress">
+        <div class="progress-fill" style="width: 95%"></div>
       </div>
-      <div class="photos-p">
-        <div class="profile-photo6"></div>
-        <a href="images/photo6.jpg" class="imagetext" >View</a>
+      <span class="progress-text">95%</span>
+    </div>
+    
+    <div class="skills-row">
+      <div class="a1-skills-app-4"></div>
+      <div class="skill-progress">
+        <div class="progress-fill" style="width: 80%"></div>
       </div>
-      <div class="photos-p">
-        <div class="profile-photo7"></div>
-        <a href="images/photo7.jpg" class="imagetext" >View</a>
+      <span class="progress-text">80%</span>
+    </div>
+  </div>
+</div>
+
+			<!--second sets of skills-->
+<div class="sets-of-skills-1-p" data-aos="fade-up">
+  <div class="lable-p">
+    <p>Programming..</p>
+  </div>
+  <div class="all-skills-app-1-p">
+    <div class="skills-row">
+      <div class="a2-skills-app-1"></div>
+      <div class="skill-progress">
+        <div class="progress-fill" style="width: 85%"></div>
       </div>
-      <div class="photos-p">
-        <div class="profile-photo8"></div>
-        <a href="images/Digital-1.png" class="imagetext" >View</a>
+      <span class="progress-text">85%</span>
+    </div>
+    
+    <div class="skills-row">
+      <div class="a2-skills-app-2"></div>
+      <div class="skill-progress">
+        <div class="progress-fill" style="width: 90%"></div>
       </div>
-   </div>  
-   <div><h3 id="unity" style="color: rgb(0, 153, 255);"><b>UNITY</b></h3>
-
-    <div class="unity-p" >
-      <p class="title-p">Creating a Timer for game!</p>
-      <video id="video" width="100%" height="500" controls >
-        <source src="./unity-video.mp4" type="video/mp4">
-        Your browser does not support the video tag.
-      </video>
-  
-
+      <span class="progress-text">90%</span>
     </div>
-  </div>
-  <div class="unityprojects-timeline">
-    <div>
-      <div class="androidimg2"></div>
-      
-  </div>
-  <h4 class="completed-text" style="color: rgb(0, 153, 255);"><b>COMPLETED-PROJECTS</b></h4>
-  <div class="projectselement1">
     
-    <div class="photos-p-1">
-      <div class="profile-photo9"></div>
-      <p class="nametxt" style="color: rgb(0, 153, 255);"><b>CHRONO-RUSH</b></p>
+    <div class="skills-row">
+      <div class="a2-skills-app-3"></div>
+      <div class="skill-progress">
+        <div class="progress-fill" style="width: 80%"></div>
+      </div>
+      <span class="progress-text">80%</span>
     </div>
-  <div class="photos-p-1">
-    <div class="profile-photo10"></div>
-    <p class="nametxt" style="color: rgb(0, 153, 255);"><b>FIND-PATH</b></p>
-  </div>
-  <div class="photos-p-1">
-    <div class="profile-photo11"></div>
-    <p class="nametxt" style="color: rgb(0, 153, 255);"><b>FORTNITE-CLONE</b></p>
+    
+    <div class="skills-row">
+      <div class="a2-skills-app-4"></div>
+      <div class="skill-progress">
+        <div class="progress-fill" style="width: 75%"></div>
+      </div>
+      <span class="progress-text">75%</span>
+    </div>
   </div>
   
-  </div>
-  <div class="projectselement2">
-    
-    <div class="photos-p-1">
-      <div class="profile-photo12"></div>
-      <p class="nametxt" style="color: rgb(0, 153, 255);"><b>BALANCE-ME</b></p>
-    </div>
-  <div class="photos-p-1">
-    <div class="profile-photo13"></div>
-    <p class="nametxt" style="color: rgb(0, 153, 255);"><b>STREET-CROSSER</b></p>
-  </div>
-  <div class="photos-p-1">
-    <div class="profile-photo14"></div>
-    <p class="nametxt" style="color: rgb(0, 153, 255);"><b>DODGE-THE-BOX</b></p>
+  <div class="skills-row">
+	<div class="a2-skills-app-5"></div>
+	<div class="skill-progress">
+	  <div class="progress-fill" style="width: 85%"></div>
+	</div>
+	<span class="progress-text">85%</span>
   </div>
   
+  <div class="skills-row">
+	<div class="a2-skills-app-6"></div>
+	<div class="skill-progress">
+	  <div class="progress-fill" style="width: 90%"></div>
+	</div>
+	<span class="progress-text">90%</span>
   </div>
-  <div class="ongoingprojects">
-    <div class="androidimg2"></div>
-    <h4 class="completed-text" style="color: rgb(0, 153, 255);"><b>ONGOING-PROJECTS</b></h4>
-  </div>
-  <div class="projectselement1">
-    
-    <div class="photos-p-1">
-      <div class="profile-photo15"></div>
-      <p class="nametxt" style="color: rgb(0, 153, 255);"><b>NAME-PLACE</b></p>
-    </div>
-  <div class="photos-p-1">
-    <div class="profile-photo16"></div>
-    <p class="nametxt" style="color: rgb(0, 153, 255);"><b>BOX-DASH</b></p>
-  </div>
-  <div class="photos-p-1">
-    <div class="profile-photo17"></div>
-    <p class="nametxt" style="color: rgb(0, 153, 255);"><b>PLATFORMER</b></p>
-  </div>
-
-  </div>
-
-</div>  
-<h4 id="react" class="completed-text" style="color: rgb(0, 153, 255);"><b>REACT</b></h4> 
-<div class="reactlearnig">
-  <p>Currently learning React. </p>
-</div> 
-<h4 id="web3" class="completed-text" style="color: rgb(0, 153, 255);"><b>WEB3-DEVELOPMENT</b></h4> 
-<div class="reactlearnig">
-  <p>Example: Current website! </p>
-</div> 
-
-  </div>
-  <div class="footer">
-    <div class="contact-us" id="contact-us">
-      <h6>Contact Me</h6>
-      <p>adhikariayush777@email.com</p>
-      <h6>Phone</h6>
-        <p>+977 9866156417</p>
-    </div>
-    <div class="side1">
-      <form action="https://formspree.io/f/xoqzennb" method="post">
-        <div class="form-group">
-          <label for="name">Name:</label>
-          <input type="text" class="form-control" id="name" name="name" required>
-        </div>
-        <div class="form-group">
-          <label for="email">Email:</label>
-          <input type="email" class="form-control" id="email" name="email" required>
-        </div>
-        <div class="form-group">
-          <label for="message">Message:</label>
-          <textarea class="form-control" id="message" name="message" rows="7" required></textarea>
-        </div>
-        <input type="hidden" name="_subject" value="New message from [Name]">
-        <button type="submit" class="btn btn-primary">Submit</button>
-      </form>
-      
-          
-          
-    </div>
-    
-
-</div>
-<div class="copyright">
-  <p style="color: white;"> © 2015-2023 Ayush Adhikari <a href="#main-p-1" class="backtotop">BackToTop!</a></p>
   
-</div>
-<!-- Chrono-Rush-->
-<div class="moreinfo" style="display: none;">
+  <div class="skills-row">
+	<div class="a2-skills-app-7"></div>
+	<div class="skill-progress">
+	  <div class="progress-fill" style="width: 80%"></div>
+	</div>
+	<span class="progress-text">80%</span>
+  </div>
   
-  <button class="close-btn">Close</button>
-  <div class="photos-p-2">
-    <p>Preview</p>
-    <!-- Computer files name formate -->
-    <div class="computer-p">
-      <img src="./images/image 1.png" class="icon">
-      <p>MonoBleedingEdge</p>
-    </div>
-    <div class="computer-p">
-      <img src="./images/image 1.png" class="icon">
-      <p>Chrono-Rush_BurstDebugInformation_DoNotShip</p>
-      
-    </div>
-    <div class="computer-p">
-      <img src="./images/image 1.png" class="icon">
-      <p>Chrono-Rush_Data</p>
-      
-    </div>
-    <div class="computer-p">
-      <img src="./images/chronoIcon.png" class="icon">
-      <p>Chrono-Rush.exe</p>
-      
-    </div>
-    <div class="computer-p">
-      <img src="./images/android.png" class="icon">
-      <p>UnityCrashHandler64</p>
-      
-    </div>
-    <div class="computer-p">
-      <img src="./images/dll.png" class="icon">
-      <p>UnityPlayer.dll</p>
-      
-    </div>
-
-    <a href="" download>
-      <button class="download-btn">Download</button>
-    </a>
-    
+  <div class="skills-row">
+	<div class="a2-skills-app-8"></div>
+	<div class="skill-progress">
+	  <div class="progress-fill" style="width: 75%"></div>
+	</div>
+	<span class="progress-text">75%</span>
   </div>
-  <div class="gameImg">
-    <img src="./images/Chrono-Rush-1.png" class="active">
-    <img src="./images/Chrono-Rush-2.png">
-    <img src="./images/Chrono-Rush-3.png">
-    <img src="./images/Chrono-Rush-4.png">
-    <img src="./images/Chrono-Rush-5.png">
-    <!-- Add more images here -->
-    
-  </div>
-  <div class="info-p"><p>"Chrono-Rush" - A free-to-play platformer game. Navigate through levels while avoiding enemies. Requires focus and quick reflexes. Test your skill and try not to fall while completing levels. Get ready for a fast-paced and thrilling experience! </p></div>
-  <button class="prev-btn"></button>
-  <button class="next-btn"></button>
-
-</div>
-<!-- FindPath-->
-<div class="moreinfo2" style="display: none;">
-  
-  <button class="close-btn">Close</button>
-  <div class="photos-p-2">
-    <p>Preview</p>
-    <!-- Computer files name formate -->
-    <div class="computer-p">
-      <img src="./images/image 1.png" class="icon">
-      <p>FindPath_BurstDebugInformation_DoNotShip</p>
-    </div>
-    <div class="computer-p">
-      <img src="./images/image 1.png" class="icon">
-      <p>FindPath_Data</p>
-      
-    </div>
-    <div class="computer-p">
-      <img src="./images/image 1.png" class="icon">
-      <p>MonoBleedingEdge</p>
-      
-    </div>
-    <div class="computer-p">
-      <img src="./images/find-path-menu.png" class="icon">
-      <p>FindPath.exe</p>
-      
-    </div>
-    <div class="computer-p">
-      <img src="./images/android.png" class="icon">
-      <p>UnityCrashHandler64</p>
-      
-    </div>
-    <div class="computer-p">
-      <img src="./images/dll.png" class="icon">
-      <p>UnityPlayer.dll</p>
-      
-    </div>
-
-    <a href="" download>
-      <button class="download-btn">Download</button>
-    </a>
-    
-  </div>
-  <div class="gameImg">
-    <img src="./images/find-path-menu.png" class="active">
-    <img src="./images/find-path-start.png">
-    <img src="./images/find-path-menu.png">
-    <img src="./images/find-path-start.png">
-    <img src="./images/find-path-menu.png">
-    <!-- Add more images here -->
-    
-  </div>
-  <div class="info-p"><p>"FindPath" is a challenging puzzle game developed by INDI game developer Ayush Adhikari. The goal of the game is to find the correct path to reach the end. This game requires strategic thinking and sharp problem-solving skills to reach the end. With its mind-bending challenges, "FindPath" will keep players engaged and entertained for hours. Get ready to put your skills to the test and experience a truly unforgettable gaming experience!</p></div>
-  <button class="prev-btn"></button>
-  <button class="next-btn"></button>
-
 </div>
 
-<!-- Fortnite-->
-<div class="moreinfo3" style="display: none;">
+
+			<!--third sets of skills-->
+			<div class="sets-of-skills-1-p" data-aos="fade-up">
+				<div class="lable-p" data-aos="fade-up">
+					<p>3D Modeling & Graphics..</p>
+				</div>
+				<div class="all-skills-app-1-p" data-aos="fade-up">
+					<div class="skills-row">
+						<div class="a3-skills-app-1"></div>
+						<div class="skill-progress">
+							<div class="progress-fill" style="width: 85%"></div>
+						</div>
+						<span class="progress-text">85%</span>
+					</div>
+					
+					<div class="skills-row">
+						<div class="a3-skills-app-2"></div>
+						<div class="skill-progress">
+							<div class="progress-fill" style="width: 90%"></div>
+						</div>
+						<span class="progress-text">90%</span>
+					</div>
+					
+					<div class="skills-row">
+						<div class="a3-skills-app-3"></div>
+						<div class="skill-progress">
+							<div class="progress-fill" style="width: 80%"></div>
+						</div>
+						<span class="progress-text">80%</span>
+					</div>
+					
+					<div class="skills-row">
+						<div class="a3-skills-app-4"></div>
+						<div class="skill-progress">
+							<div class="progress-fill" style="width: 75%"></div>
+						</div>
+						<span class="progress-text">75%</span>
+					</div>
+				</div>
+			</div>
+			<!--others sets of skills-->
+			<div class="sets-of-skills-1-p" data-aos="fade-up">
+				<div class="lable-p" data-aos="fade-up">
+					<p>Others..</p>
+				</div>
+				<div class="all-skills-app-1-p" data-aos="fade-up">
+					<div class="skills-row">
+						<div class="a4-skills-app-1"></div>
+						<div class="skill-progress">
+							<div class="progress-fill" style="width: 85%"></div>
+						</div>
+						<span class="progress-text">85%</span>
+					</div>
+					
+					<div class="skills-row">
+						<div class="a4-skills-app-2"></div>
+						<div class="skill-progress">
+							<div class="progress-fill" style="width: 90%"></div>
+						</div>
+						<span class="progress-text">90%</span>
+					</div>
+					
+					<div class="skills-row">
+						<div class="a4-skills-app-3"></div>
+						<div class="skill-progress">
+							<div class="progress-fill" style="width: 80%"></div>
+						</div>
+						<span class="progress-text">80%</span>
+					</div>
+					
+					<div class="skills-row">
+						<div class="a4-skills-app-4"></div>
+						<div class="skill-progress">
+							<div class="progress-fill" style="width: 75%"></div>
+						</div>
+						<span class="progress-text">75%</span>
+					</div>
+
+					<div class="skills-row">
+						<div class="a4-skills-app-5"></div>
+						<div class="skill-progress">
+							<div class="progress-fill" style="width: 85%"></div>
+						</div>
+						<span class="progress-text">85%</span>
+					</div>
+
+					<div class="skills-row">
+						<div class="a4-skills-app-6"></div>
+						<div class="skill-progress">
+							<div class="progress-fill" style="width: 70%"></div>
+						</div>
+						<span class="progress-text">70%</span>
+					</div>
+
+					<div class="skills-row">
+						<div class="a4-skills-app-7"></div>
+						<div class="skill-progress">
+							<div class="progress-fill" style="width: 95%"></div>
+						</div>
+						<span class="progress-text">95%</span>
+					</div>
+
+					<div class="skills-row">
+						<div class="a4-skills-app-8"></div>
+						<div class="skill-progress">
+							<div class="progress-fill" style="width: 88%"></div>
+						</div>
+						<span class="progress-text">88%</span>
+					</div>
+				</div>
+			</div>
+			<a href="https://www.linkedin.com/in/aa-ayushadhikari" class="loadprojects-2-more" target="_blank"><p style="opacity: 1;">ExplorMore.</p></a>
+		</div>
+		
+		<div id="gallery-container" data-section-name="Art-Gallery"data-aos="fade-up">
+			<!-- this is for a little bit space after the Skills section. -->
+			 <div class="blankcover"></div>
+
+			<div id="gallery"data-aos="fade-up">
+			  <img src="https://www.ayushadhikari.info.np/images/photo1.jpg" data-index="0" class="gallery-img active">
+			  <img src="https://www.ayushadhikari.info.np/images/photo2.jpg" data-index="1" class="gallery-img">
+			  <img src="https://www.ayushadhikari.info.np/images/photo3.jpg" data-index="2" class="gallery-img">
+			  <img src="https://www.ayushadhikari.info.np/images/photo4.jpg" data-index="3" class="gallery-img">
+			  <img src="https://www.ayushadhikari.info.np/images/photo5.jpg" data-index="4" class="gallery-img">
+			  <img src="https://www.ayushadhikari.info.np/images/photo6.jpg" data-index="5" class="gallery-img">
+			  <img src="https://www.ayushadhikari.info.np/images/photo7.jpg" data-index="6" class="gallery-img">
+			  <img src="https://www.ayushadhikari.info.np/images/photo8.jpg" data-index="7" class="gallery-img">
+			  <img src="https://www.ayushadhikari.info.np/images/Digital-1.png" data-index="8" class="gallery-img">
+			  
+			</div>
+			<a href="https://www.instagram.com/art_by_aayush/" class="loadprojects-3-more"data-aos="fade-up">ExplorMore.</a>
+		
+		  </div>
+		  
+		  <!-- Get in touch with me. mobile version -->
+		  <div id="Contact" data-section-name="Contact"data-aos="fade-up">
+			<!-- Get in touch with me. -->
+			<div class="blankcover"></div>
+			<div class="getintouch-p-m"data-aos="fade-up">
+				<h2>Get In Touch?</h2>
+			</div>
+			<!-- Replace the existing form with this -->
+<div class="c-body-p-m" data-aos="fade-up">
+    <form action="https://formspree.io/f/xoqzennb" method="POST">
+        <label for="name">Enter Name:</label>
+        <input type="text" id="name" name="name" required>
   
-  <button class="close-btn">Close</button>
-  <div class="photos-p-2">
-    <p>Preview</p>
-    <!-- Computer files name formate -->
-    <div class="computer-p">
-      <img src="./images/image 1.png" class="icon">
-      <p>Fortnite-Clone_BurstDebugInformation_DoNotShip</p>
-    </div>
-    <div class="computer-p">
-      <img src="./images/image 1.png" class="icon">
-      <p>Fortnite-Clone_Data</p>
-      
-    </div>
-    <div class="computer-p">
-      <img src="./images/image 1.png" class="icon">
-      <p>MonoBleedingEdge</p>
-      
-    </div>
-    <div class="computer-p">
-      <img src="./images/R.jpg" class="icon">
-      <p>Fortnite-Clone.exe</p>
-      
-    </div>
-    <div class="computer-p">
-      <img src="./images/android.png" class="icon">
-      <p>UnityCrashHandler64</p>
-      
-    </div>
-    <div class="computer-p">
-      <img src="./images/dll.png" class="icon">
-      <p>UnityPlayer.dll</p>
-      
-    </div>
-
-    <a href="" download>
-      <button class="download-btn">Download</button>
-    </a>
-    
-  </div>
-  <div class="gameImg">
-    <img src="./images/fortnite-clone.png" class="active">
-    <img src="./images/fortnite-clone.png">
-    <img src="./images/fortnite-clone.png">
-    <img src="./images/fortnite-clone.png">
-    <img src="./images/fortnite-clone.png">
-    <!-- Add more images here -->
-    
-  </div>
-  <div class="info-p"><p>"Fortnite-Clone" - A menu system inspired by the popular game, Fortnite. Features a similar interface and navigation experience to the original game, offering players a familiar and intuitive way to access game modes and options. Get ready to jump into the action and experience the excitement of Fortnite-style gameplay!</p></div>
-  <button class="prev-btn"></button>
-  <button class="next-btn"></button>
-
-</div>
-<!-- BalanceMe-->
-<div class="moreinfo4" style="display: none;">
+        <label for="email">Enter Email:</label>
+        <input type="email" id="email" name="email" required>
   
-  <button class="close-btn">Close</button>
-  <div class="photos-p-2">
-    <p>Preview</p>
-    <!-- Computer files name formate -->
-    <div class="computer-p">
-      <img src="./images/image 1.png" class="icon">
-      <p>BalanceMe_BurstDebugInformation_DoNotShip</p>
-    </div>
-    <div class="computer-p">
-      <img src="./images/image 1.png" class="icon">
-      <p>BalanceMe_Data</p>
-      
-    </div>
-    <div class="computer-p">
-      <img src="./images/image 1.png" class="icon">
-      <p>MonoBleedingEdge</p>
-      
-    </div>
-    <div class="computer-p">
-      <img src="./images/balanceme-icon.jpg" class="icon">
-      <p>BalanceMe.apk</p>
-      
-    </div>
-    <div class="computer-p">
-      <img src="./images/android.png" class="icon">
-      <p>UnityCrashHandler64</p>
-      
-    </div>
-    <div class="computer-p">
-      <img src="./images/dll.png" class="icon">
-      <p>UnityPlayer.dll</p>
-      
-    </div>
-
-    <a href="" download>
-      <button class="download-btn">Download</button>
-    </a>
-    
-  </div>
-  <div class="gameImg">
-    <img src="./images/balanceme-menu.jpg" class="active">
-    <img src="./images/balanceme-setting.jpg">
-    <img src="./images/balanceme-edit2.jpg">
-    <img src="./images/balanceme-7.jpg">
-    <img src="./images/balanceMe-play2.jpg">
-    <!-- Add more images here -->
-    
-  </div>
-  <div class="info-p"><p>"Balance Me" - An exciting and challenging game. Players navigate through levels filled with dangerous obstacles and must maintain balance to succeed. With its thrilling gameplay and adrenaline-fueled action, "Balance Me" is the ultimate test of skill and balance. Get ready to be put to the test and experience non-stop excitement!</p></div>
-  <button class="prev-btn"></button>
-  <button class="next-btn"></button>
-
-</div>
-<!-- Street-Crosser-->
-<div class="moreinfo5" style="display: none;">
+        <label for="message">Write Message:</label>
+        <textarea id="message" name="message" required></textarea>
   
-  <button class="close-btn">Close</button>
-  <div class="photos-p-2">
-    <p>Preview</p>
-    <!-- Computer files name formate -->
-    <div class="computer-p">
-      <img src="./images/image 1.png" class="icon">
-      <p>Street-Crosser_BurstDebugInformation_DoNotShip</p>
-    </div>
-    <div class="computer-p">
-      <img src="./images/image 1.png" class="icon">
-      <p>Street-Crosser_Data</p>
-      
-    </div>
-    <div class="computer-p">
-      <img src="./images/image 1.png" class="icon">
-      <p>MonoBleedingEdge</p>
-      
-    </div>
-    <div class="computer-p">
-      <img src="./images/streetcrossing-icon.png" class="icon">
-      <p>Street-Crosser.apk</p>
-      
-    </div>
-    <div class="computer-p">
-      <img src="./images/android.png" class="icon">
-      <p>UnityCrashHandler64</p>
-      
-    </div>
-    <div class="computer-p">
-      <img src="./images/dll.png" class="icon">
-      <p>UnityPlayer.dll</p>
-      
-    </div>
-
-    <a href="" download>
-      <button class="download-btn">Download</button>
-    </a>
-    
-  </div>
-  <div class="gameImg">
-    <img src="././images/street-crosser.jpg" class="active">
-    <img src="././images/street-crosser-out.jpg">
-    <img src="./images/street-crosser.jpg">
-    <img src="./images/street-crosser-out.jpg">
-    <img src="./images/street-crosser.jpg">
-    <!-- Add more images here -->
-    
-  </div>
-  <div class="info-p"><p>"Street Crosser" - A fast-paced action game where players control a tortoise and must navigate through roads filled with cars and other obstacles. The goal is to safely cross the streets and reach the other side. With its simple but challenging gameplay, "Street Crosser" is sure to keep players engaged and entertained. Get ready to test your reflexes and cross the streets in style!</p></div>
-  <button class="prev-btn"></button>
-  <button class="next-btn"></button>
-
+        <input type="hidden" name="_subject" value="New Portfolio Contact from {name}">
+        <input type="submit" value="Send Message">
+    </form>
 </div>
-<!-- DodgeTheBox-->
-<div class="moreinfo6" style="display: none;">
-  
-  <button class="close-btn">Close</button>
-  <div class="photos-p-2">
-    <p>Preview</p>
-    <!-- Computer files name formate -->
-    <div class="computer-p">
-      <img src="./images/image 1.png" class="icon">
-      <p>DodgeTheBox_BurstDebugInformation_DoNotShip</p>
-    </div>
-    <div class="computer-p">
-      <img src="./images/image 1.png" class="icon">
-      <p>DodgeTheBox_Data</p>
-      
-    </div>
-    <div class="computer-p">
-      <img src="./images/image 1.png" class="icon">
-      <p>MonoBleedingEdge</p>
-      
-    </div>
-    <div class="computer-p">
-      <img src="./images/Dodge the box icon.png" class="icon">
-      <p>DodgeTheBox.apk</p>
-      
-    </div>
-    <div class="computer-p">
-      <img src="./images/android.png" class="icon">
-      <p>UnityCrashHandler64</p>
-      
-    </div>
-    <div class="computer-p">
-      <img src="./images/dll.png" class="icon">
-      <p>UnityPlayer.dll</p>
-      
-    </div>
+			
 
-    <a href="" download>
-      <button class="download-btn">Download</button>
-    </a>
-    
-  </div>
-  <div class="gameImg">
-    <img src="./images/dodgeTheBox.jpg" class="active">
-    <img src="./images/dodgeTheBox-play.jpg">
-    <img src="./images/dodgeTheBox-play2.jpg">
-    <img src="./images/dodgeTheBox-play.jpg">
-    <img src="./images/dodgeTheBox-play2.jpg">
-    <!-- Add more images here -->
-    
-  </div>
-  <div class="info-p"><p>"DodgeTheBox" - A fast-paced 2D game that requires quick reflexes and muscle memory. Players must dodge obstacles at high speed in an endless gameplay setting, aiming to achieve the highest score possible. With its challenging gameplay and high-speed action, "DodgeTheBox" is sure to keep players engaged and entertained. Get ready to test your skills and see how far you can go!
+		  </div>
+		  <div class="bottom-p-m">
+			
+			<p>
+			  <span>+977 9866156417</span>
+			  <br>
+			  <span>adhikariayush777@gmail.com</span>
+			</p>
+		  </div>
 
-
-
-  </p></div>
-  <button class="prev-btn"></button>
-  <button class="next-btn"></button>
-
-</div>
-  <!-- JavaScript -->
-  <script>
-
-  </script>
-  <script src="./script.js"></script>
- </body>
-
-</html>  
+	<script src="script.js"></script>
+	<script src="scriptpc.js"></script>
+	<!-- our aos data -->
+	<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+	<script>
+	AOS.init({
+		offset: 100,
+		duration: 1000,
+	});
+	</script>
+	<script>
+		document.querySelector('.bottom-p-m').addEventListener('mousemove', (e) => {
+		  const rect = e.target.getBoundingClientRect();
+		  const x = ((e.clientX - rect.left) / rect.width) * 100;
+		  const y = ((e.clientY - rect.top) / rect.height) * 100;
+		  e.target.style.setProperty('--mouse-x', `${x}%`);
+		  e.target.style.setProperty('--mouse-y', `${y}%`);
+		});
+		</script>
+</body>
+</html>
