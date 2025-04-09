@@ -1,0 +1,1202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PURE - Personal Finance Tracker</title>
+    <meta name="description" content="PURE is a privacy-focused personal finance tracker app that operates completely offline. Track your finances with confidence.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            /* Light mode colors */
+            --primary-color: #6200EE;
+            --primary-dark: #3700B3;
+            --secondary-color: #03DAC5;
+            --accent-color: #03DAC5;
+            --background-color: #F8F9FA;
+            --card-background: #FFFFFF;
+            --text-color: rgba(0, 0, 0, 0.87);
+            --text-secondary: rgba(0, 0, 0, 0.6);
+            --surface-color: #FFFFFF;
+            --shadow-color: rgba(0, 0, 0, 0.1);
+            --error-color: #B00020;
+            
+            /* Shared properties */
+            --border-radius: 16px;
+            --section-spacing: 60px;
+            --transition-speed: 0.3s;
+        }
+
+        .dark-mode {
+            /* Dark mode colors */
+            --primary-color: #BB86FC;
+            --primary-dark: #9965FB;
+            --secondary-color: #03DAC5;
+            --accent-color: #03DAC5;
+            --background-color: #121212;
+            --card-background: #1F1F1F;
+            --text-color: rgba(255, 255, 255, 0.87);
+            --text-secondary: rgba(255, 255, 255, 0.6);
+            --surface-color: #1F1F1F;
+            --shadow-color: rgba(0, 0, 0, 0.4);
+            --error-color: #CF6679;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            color: var(--text-color);
+            background-color: var(--background-color);
+            line-height: 1.6;
+            overflow-x: hidden;
+            transition: background-color var(--transition-speed), color var(--transition-speed);
+        }
+
+        a {
+            text-decoration: none;
+            color: var(--primary-color);
+            transition: all var(--transition-speed) ease;
+        }
+
+        a:hover {
+            opacity: 0.8;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background-color: var(--surface-color);
+            box-shadow: 0 2px 15px var(--shadow-color);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 100;
+            transition: background-color var(--transition-speed);
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 16px 20px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo h1 {
+            font-size: 22px;
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+
+        .logo span {
+            font-weight: 400;
+            font-size: 14px;
+            color: var(--text-secondary);
+            display: block;
+            margin-top: -5px;
+        }
+
+        .theme-toggle {
+            margin-right: 20px;
+            background: none;
+            border: none;
+            color: var(--text-color);
+            font-size: 24px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 8px;
+            border-radius: 50%;
+            transition: background-color var(--transition-speed);
+        }
+
+        .theme-toggle:hover {
+            background-color: rgba(128, 128, 128, 0.1);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 30px;
+        }
+
+        nav ul li a {
+            font-weight: 500;
+            color: var(--text-color);
+            position: relative;
+        }
+
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--secondary-color);
+            transition: width 0.3s;
+        }
+
+        nav ul li a:hover::after {
+            width: 100%;
+        }
+
+        .nav-controls {
+            display: flex;
+            align-items: center;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+            color: var(--text-color);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding-top: 180px;
+            padding-bottom: 60px;
+            background-color: var(--background-color);
+            transition: background-color var(--transition-speed);
+        }
+
+        .hero-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .hero-text {
+            width: 50%;
+            padding-right: 40px;
+        }
+
+        .hero-text h2 {
+            font-size: 44px;
+            line-height: 1.2;
+            margin-bottom: 24px;
+            color: var(--primary-color);
+            font-weight: 700;
+        }
+
+        .hero-text p {
+            font-size: 18px;
+            margin-bottom: 32px;
+            color: var(--text-secondary);
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 16px;
+        }
+
+        .cta-button {
+            padding: 14px 28px;
+            border-radius: 30px;
+            font-weight: 500;
+            font-size: 16px;
+            transition: all var(--transition-speed) ease;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+        }
+
+        .primary-btn {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .primary-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.25);
+        }
+
+        .secondary-btn {
+            background-color: transparent;
+            color: var(--primary-color);
+            border: 2px solid var(--primary-color);
+        }
+
+        .secondary-btn:hover {
+            background-color: rgba(98, 0, 238, 0.08);
+        }
+
+        .hero-image {
+            width: 45%;
+            position: relative;
+        }
+
+        .app-mockup {
+            width: 280px;
+            position: relative;
+            margin: 0 auto;
+            border-radius: 32px;
+            box-shadow: 0 20px 40px var(--shadow-color);
+            overflow: hidden;
+            border: 8px solid var(--card-background);
+            transition: box-shadow var(--transition-speed), border-color var(--transition-speed);
+        }
+
+        .app-mockup img {
+            width: 100%;
+            display: block;
+            border-radius: 24px;
+        }
+
+        /* Screen image for different modes */
+        .app-mockup .light-mode-img {
+            display: block;
+        }
+
+        .app-mockup .dark-mode-img {
+            display: none;
+        }
+
+        .dark-mode .app-mockup .light-mode-img {
+            display: none;
+        }
+
+        .dark-mode .app-mockup .dark-mode-img {
+            display: block;
+        }
+
+        /* Features Section */
+        .features {
+            padding: var(--section-spacing) 0;
+            background-color: var(--background-color);
+            transition: background-color var(--transition-speed);
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-title h3 {
+            font-size: 32px;
+            color: var(--primary-color);
+            margin-bottom: 16px;
+            font-weight: 700;
+        }
+
+        .section-title p {
+            font-size: 18px;
+            color: var(--text-secondary);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 24px;
+            margin-top: 40px;
+        }
+
+        .feature-card {
+            background-color: var(--card-background);
+            border-radius: var(--border-radius);
+            padding: 30px;
+            box-shadow: 0 8px 24px var(--shadow-color);
+            transition: transform var(--transition-speed), 
+                        background-color var(--transition-speed),
+                        box-shadow var(--transition-speed);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 12px 30px var(--shadow-color);
+        }
+
+        .feature-icon {
+            width: 60px;
+            height: 60px;
+            background-color: var(--primary-color);
+            color: white;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 24px;
+            font-size: 26px;
+        }
+
+        .feature-card h4 {
+            font-size: 20px;
+            margin-bottom: 16px;
+            color: var(--text-color);
+            font-weight: 600;
+        }
+
+        .feature-card p {
+            color: var(--text-secondary);
+            flex-grow: 1;
+        }
+
+        /* Privacy Section */
+        .privacy {
+            padding: var(--section-spacing) 0;
+            background-color: rgba(98, 0, 238, 0.05);
+            transition: background-color var(--transition-speed);
+        }
+
+        .dark-mode .privacy {
+            background-color: rgba(187, 134, 252, 0.05);
+        }
+
+        .privacy-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .privacy-text {
+            width: 55%;
+        }
+
+        .privacy-points {
+            margin-top: 30px;
+        }
+
+        .privacy-point {
+            display: flex;
+            margin-bottom: 24px;
+            padding: 16px;
+            background-color: var(--card-background);
+            border-radius: var(--border-radius);
+            box-shadow: 0 4px 8px var(--shadow-color);
+            transition: background-color var(--transition-speed),
+                        transform var(--transition-speed),
+                        box-shadow var(--transition-speed);
+        }
+
+        .privacy-point:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 16px var(--shadow-color);
+        }
+
+        .privacy-point-icon {
+            color: var(--secondary-color);
+            margin-right: 16px;
+            font-size: 22px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 32px;
+        }
+
+        .privacy-point-text h5 {
+            font-size: 18px;
+            margin-bottom: 6px;
+            color: var(--text-color);
+            font-weight: 600;
+        }
+
+        .privacy-point-text p {
+            color: var(--text-secondary);
+        }
+
+        .privacy-image {
+            width: 40%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .secure-app-mockup {
+            max-width: 300px;
+            border-radius: 24px;
+            box-shadow: 0 20px 40px var(--shadow-color);
+            border: 8px solid var(--card-background);
+            position: relative;
+            overflow: hidden;
+            transition: box-shadow var(--transition-speed), border-color var(--transition-speed);
+        }
+
+        .secure-app-mockup img {
+            width: 100%;
+            display: block;
+            border-radius: 16px;
+        }
+
+        /* Screen image for different modes */
+        .secure-app-mockup .light-mode-img {
+            display: block;
+        }
+
+        .secure-app-mockup .dark-mode-img {
+            display: none;
+        }
+
+        .dark-mode .secure-app-mockup .light-mode-img {
+            display: none;
+        }
+
+        .dark-mode .secure-app-mockup .dark-mode-img {
+            display: block;
+        }
+
+        .secure-badge {
+            position: absolute;
+            top: -20px;
+            right: -20px;
+            width: 100px;
+            height: 100px;
+            background-color: var(--secondary-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 700;
+            transform: rotate(15deg);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        /* App Preview Section */
+        .app-preview {
+            padding: var(--section-spacing) 0;
+            background-color: var(--background-color);
+            overflow: hidden;
+            transition: background-color var(--transition-speed);
+        }
+
+        .screens-container {
+            margin-top: 50px;
+            display: flex;
+            flex-wrap: nowrap;
+            gap: 20px;
+            overflow-x: auto;
+            padding: 20px 0 40px;
+            scrollbar-width: none; /* Firefox */
+            -ms-overflow-style: none; /* IE and Edge */
+        }
+
+        .screens-container::-webkit-scrollbar {
+            display: none; /* Chrome, Safari, Opera */
+        }
+
+        .screen-item {
+            min-width: 280px;
+            background-color: var(--card-background);
+            border-radius: 24px;
+            box-shadow: 0 15px 30px var(--shadow-color);
+            overflow: hidden;
+            border: 8px solid var(--card-background);
+            flex-shrink: 0;
+            transition: transform var(--transition-speed),
+                        background-color var(--transition-speed),
+                        box-shadow var(--transition-speed),
+                        border-color var(--transition-speed);
+        }
+
+        .screen-item:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 25px 50px var(--shadow-color);
+        }
+
+        .screen-item img {
+            width: 100%;
+            height: 520px;
+            object-fit: cover;
+            border-radius: 16px;
+            display: block;
+            transition: opacity var(--transition-speed);
+        }
+
+        /* Screen image for different modes */
+        .screen-item .light-mode-img {
+            display: block;
+        }
+
+        .screen-item .dark-mode-img {
+            display: none;
+        }
+
+        .dark-mode .screen-item .light-mode-img {
+            display: none;
+        }
+
+        .dark-mode .screen-item .dark-mode-img {
+            display: block;
+        }
+
+        .screen-title {
+            text-align: center;
+            margin-top: 16px;
+            padding: 0 10px 16px;
+            font-weight: 500;
+            color: var(--text-color);
+        }
+
+        /* Download Section */
+        .download {
+            padding: var(--section-spacing) 0;
+            background: linear-gradient(150deg, var(--primary-color) 0%, var(--primary-dark) 100%);
+            color: white;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .download-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .download-bg-shape {
+            position: absolute;
+            top: -10%;
+            right: -10%;
+            width: 60%;
+            height: 150%;
+            background: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 100%);
+            border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+            z-index: 1;
+        }
+
+        .download h3 {
+            font-size: 36px;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .download p {
+            font-size: 18px;
+            max-width: 700px;
+            margin: 0 auto 40px auto;
+            opacity: 0.9;
+        }
+
+        .store-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .store-btn {
+            display: flex;
+            align-items: center;
+            background-color: white;
+            color: var(--primary-color);
+            padding: 12px 30px;
+            border-radius: 14px;
+            font-weight: 500;
+            transition: all var(--transition-speed) ease;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .store-btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 28px rgba(0, 0, 0, 0.3);
+            color: var(--primary-color);
+        }
+
+        .store-btn i {
+            font-size: 30px;
+            margin-right: 15px;
+        }
+
+        .store-btn span {
+            display: flex;
+            flex-direction: column;
+            text-align: left;
+        }
+
+        .store-btn .small-text {
+            font-size: 12px;
+            font-weight: 400;
+        }
+
+        .store-btn .big-text {
+            font-size: 18px;
+            font-weight: 600;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--surface-color);
+            color: var(--text-color);
+            padding: 60px 0 30px;
+            transition: background-color var(--transition-speed), color var(--transition-speed);
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 40px;
+        }
+
+        .footer-column {
+            width: 24%;
+        }
+
+        .footer-column h4 {
+            font-size: 18px;
+            margin-bottom: 20px;
+            color: var(--primary-color);
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-column h4::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background-color: var(--secondary-color);
+        }
+
+        .footer-column p, .footer-column a {
+            color: var(--text-secondary);
+            margin-bottom: 10px;
+            display: block;
+            transition: color var(--transition-speed);
+        }
+
+        .footer-column a:hover {
+            color: var(--primary-color);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 12px;
+            margin-top: 20px;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(98, 0, 238, 0.1);
+            border-radius: 50%;
+            color: var(--primary-color);
+            transition: all var(--transition-speed) ease;
+        }
+
+        .social-links a:hover {
+            background-color: var(--primary-color);
+            color: white;
+            transform: translateY(-3px);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid var(--border-color);
+            color: var(--text-secondary);
+            font-size: 14px;
+            transition: border-color var(--transition-speed);
+        }
+
+        /* Utility Classes */
+        .text-gradient {
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .hidden-mobile {
+            display: none;
+        }
+
+        /* Responsive Design */
+        @media (min-width: 768px) {
+            .hidden-mobile {
+                display: block;
+            }
+        }
+
+        @media (max-width: 992px) {
+            .features-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .hero-text h2 {
+                font-size: 36px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header-container {
+                padding: 15px 20px;
+            }
+
+            nav ul {
+                display: none;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .hero-content, .privacy-content {
+                flex-direction: column;
+            }
+
+            .hero-text, .privacy-text {
+                width: 100%;
+                padding-right: 0;
+                margin-bottom: 40px;
+                text-align: center;
+            }
+            
+            .privacy-text .section-title {
+                text-align: center;
+            }
+
+            .hero-image, .privacy-image {
+                width: 100%;
+                display: flex;
+                justify-content: center;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .cta-buttons {
+                justify-content: center;
+            }
+
+            .footer-content {
+                flex-wrap: wrap;
+            }
+
+            .footer-column {
+                width: 48%;
+                margin-bottom: 30px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-text h2 {
+                font-size: 28px;
+            }
+
+            .section-title h3 {
+                font-size: 26px;
+            }
+
+            .store-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .footer-column {
+                width: 100%;
+            }
+        }
+
+        /* Mobile Menu */
+        .mobile-menu {
+            display: none !important; /* Force hide in all modes */
+            position: absolute;
+            top: 70px;
+            left: 0;
+            width: 100%;
+            background-color: var(--card-background);
+            box-shadow: 0 5px 15px var(--shadow-color);
+            padding: 20px;
+            transition: background-color var(--transition-speed);
+            z-index: 101;
+        }
+
+        /* Only show when specifically activated */
+        .mobile-menu.active {
+            display: block !important;
+        }
+
+        .mobile-menu ul {
+            flex-direction: column;
+            list-style: none;
+        }
+
+        .mobile-menu ul li {
+            margin: 15px 0;
+        }
+
+        .mobile-menu ul li a {
+            color: var(--text-color);
+            font-weight: 500;
+            text-decoration: none;
+            transition: color var(--transition-speed);
+        }
+
+        .mobile-menu ul li a:hover {
+            color: var(--primary-color);
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <h1>PURE <span>Finance Tracker</span></h1>
+            </div>
+            <div class="nav-controls">
+                <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode">
+                    ☀️
+                </button>
+                <nav>
+                    <ul>
+                        <li><a href="#features">Features</a></li>
+                        <li><a href="#privacy">Privacy</a></li>
+                        <li><a href="#app-preview">App Preview</a></li>
+                        <li><a href="#download">Download</a></li>
+                        <li><a href="privacy_policy.html">Privacy Policy</a></li>
+                    </ul>
+                </nav>
+                <button class="mobile-menu-btn" aria-label="Toggle menu">☰</button>
+            </div>
+        </div>
+        <!-- Mobile Menu (moved outside the header-container) -->
+        <div class="mobile-menu">
+            <ul>
+                <li><a href="#features">Features</a></li>
+                <li><a href="#privacy">Privacy</a></li>
+                <li><a href="#app-preview">App Preview</a></li>
+                <li><a href="#download">Download</a></li>
+                <li><a href="privacy_policy.html">Privacy Policy</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container hero-content">
+            <div class="hero-text">
+                <h2>Take Control of Your <span class="text-gradient">Finances</span></h2>
+                <p>PURE (Pure Understanding of Real Economics) helps you track expenses, manage budgets, and set financial goals - all while keeping your data completely private and offline.</p>
+                <div class="cta-buttons">
+                    <a href="#download" class="cta-button primary-btn">Download Now</a>
+                    <a href="#features" class="cta-button secondary-btn">Explore Features</a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <div class="app-mockup">
+                    <img class="light-mode-img" src="https://www.ayushadhikari.info.np/images/pure/home_light.jpg" alt="PURE Finance App Dashboard Light Mode">
+                    <img class="dark-mode-img" src="https://www.ayushadhikari.info.np/images/pure/home_dark.jpg" alt="PURE Finance App Dashboard Dark Mode">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features" id="features">
+        <div class="container">
+            <div class="section-title">
+                <h3>Powerful Features</h3>
+                <p>Everything you need to manage your money, without compromising your privacy</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">💰</div>
+                    <h4>Transaction Tracking</h4>
+                    <p>Log and categorize income and expenses with custom categories, recurring transactions, and detailed history.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📊</div>
+                    <h4>Budget Management</h4>
+                    <p>Set spending limits by category, track progress, and receive alerts when approaching thresholds.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🎯</div>
+                    <h4>Savings Goals</h4>
+                    <p>Create and visualize savings targets with progress tracking and milestone celebrations.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📈</div>
+                    <h4>Visual Analytics</h4>
+                    <p>Understand your spending habits with intuitive charts, reports, and trend analysis.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🧮</div>
+                    <h4>Financial Tools</h4>
+                    <p>Built-in calculators for loans, currency conversion, and retirement planning.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🔔</div>
+                    <h4>Bill Reminders</h4>
+                    <p>Never miss a payment with customizable bill reminders and upcoming expense alerts.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Privacy Section -->
+    <section class="privacy" id="privacy">
+        <div class="container privacy-content">
+            <div class="privacy-text">
+                <div class="section-title" style="text-align: left;">
+                    <h3>Built With Privacy First</h3>
+                    <p>Your financial data stays on your device, period.</p>
+                </div>
+                <div class="privacy-points">
+                    <div class="privacy-point">
+                        <div class="privacy-point-icon">🔒</div>
+                        <div class="privacy-point-text">
+                            <h5>Zero Data Collection</h5>
+                            <p>We don't collect any personal data, financial information, or usage statistics from you.</p>
+                        </div>
+                    </div>
+                    <div class="privacy-point">
+                        <div class="privacy-point-icon">📱</div>
+                        <div class="privacy-point-text">
+                            <h5>Offline Application</h5>
+                            <p>PURE operates completely offline with all data stored locally on your device only.</p>
+                        </div>
+                    </div>
+                    <div class="privacy-point">
+                        <div class="privacy-point-icon">⚡</div>
+                        <div class="privacy-point-text">
+                            <h5>Biometric Security</h5>
+                            <p>Protect your financial data with optional fingerprint or face authentication.</p>
+                        </div>
+                    </div>
+                    <div class="privacy-point">
+                        <div class="privacy-point-icon">🔐</div>
+                        <div class="privacy-point-text">
+                            <h5>You Control Your Data</h5>
+                            <p>Export, delete, or manage your information directly through the app interface.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="privacy-image">
+                <div class="secure-app-mockup">
+                    <img class="light-mode-img" src="https://www.ayushadhikari.info.np/images/pure/privacy_light.jpg" alt="PURE Finance App Security Screen Light Mode">
+                    <img class="dark-mode-img" src="https://www.ayushadhikari.info.np/images/pure/privacy_dark.jpg" alt="PURE Finance App Security Screen Dark Mode">
+                    <div class="secure-badge">100% Private</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- App Preview Section -->
+    <section class="app-preview" id="app-preview">
+        <div class="container">
+            <div class="section-title">
+                <h3>App Preview</h3>
+                <p>Experience the clean, intuitive interface of PURE</p>
+            </div>
+            <div class="screens-container">
+                <div class="screen-item">
+                    <img class="light-mode-img" src="https://www.ayushadhikari.info.np/images/pure/home_light.jpg" alt="Dashboard Screen Light Mode">
+                    <img class="dark-mode-img" src="https://www.ayushadhikari.info.np/images/pure/home_dark.jpg" alt="Dashboard Screen Dark Mode">
+                    <div class="screen-title">Dashboard View</div>
+                </div>
+                <div class="screen-item">
+                    <img class="light-mode-img" src="https://www.ayushadhikari.info.np/images/pure/transactions_light.jpg" alt="Transactions Screen Light Mode">
+                    <img class="dark-mode-img" src="https://www.ayushadhikari.info.np/images/pure/transactions_dark.jpg" alt="Transactions Screen Dark Mode">
+                    <div class="screen-title">Transaction List</div>
+                </div>
+                <div class="screen-item">
+                    <img class="light-mode-img" src="https://www.ayushadhikari.info.np/images/pure/budget_light.jpg" alt="Budget Screen Light Mode">
+                    <img class="dark-mode-img" src="https://www.ayushadhikari.info.np/images/pure/budget_dark.jpg" alt="Budget Screen Dark Mode">
+                    <div class="screen-title">Budget Tracking</div>
+                </div>
+                <div class="screen-item">
+                    <img class="light-mode-img" src="https://www.ayushadhikari.info.np/images/pure/analytics_light.jpg" alt="Analytics Screen Light Mode">
+                    <img class="dark-mode-img" src="https://www.ayushadhikari.info.np/images/pure/analytics_dark.jpg" alt="Analytics Screen Dark Mode">
+                    <div class="screen-title">Financial Analytics</div>
+                </div>
+                <div class="screen-item">
+                    <img class="light-mode-img" src="https://www.ayushadhikari.info.np/images/pure/savings_light.jpg" alt="Goals Screen Light Mode">
+                    <img class="dark-mode-img" src="https://www.ayushadhikari.info.np/images/pure/savings_dark.jpg" alt="Goals Screen Dark Mode">
+                    <div class="screen-title">Savings Goals</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Download Section -->
+    <section class="download" id="download">
+        <div class="download-bg-shape"></div>
+        <div class="container download-content">
+            <h3>Download PURE Today</h3>
+            <p>Take control of your finances with complete privacy</p>
+            <div class="store-buttons">
+                <a href="#" class="store-btn">
+                    <i>G</i>
+                    <span>
+                        <span class="small-text">GET IT ON</span>
+                        <span class="big-text">Google Play</span>
+                    </span>
+                </a>
+                <a href="#" class="store-btn">
+                    <i>A</i>
+                    <span>
+                        <span class="small-text">Download on the</span>
+                        <span class="big-text">App Store</span>
+                    </span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h4>PURE Finance</h4>
+                    <p>A privacy-focused personal finance tracker that keeps your data on your device only.</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Twitter">T</a>
+                        <a href="#" aria-label="Facebook">F</a>
+                        <a href="#" aria-label="Instagram">I</a>
+                        <a href="#" aria-label="Github">G</a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h4>Features</h4>
+                    <a href="#features">Transaction Tracking</a>
+                    <a href="#features">Budget Management</a>
+                    <a href="#features">Savings Goals</a>
+                    <a href="#features">Financial Analytics</a>
+                </div>
+                <div class="footer-column">
+                    <h4>Legal</h4>
+                    <a href="privacy_policy.html">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                    <a href="#">GDPR Compliance</a>
+                </div>
+                <div class="footer-column">
+                    <h4>Contact</h4>
+                    <p>Questions or feedback?</p>
+                    <a href="mailto:support@pureapp.com">support@pureapp.com</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2025 PURE (Pure Understanding of Real Economics). All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Theme Toggling
+            const themeToggle = document.getElementById('theme-toggle');
+            const body = document.body;
+            
+            // Check for saved theme preference or respect OS setting
+            const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            const savedTheme = localStorage.getItem('theme');
+            
+            if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
+                body.classList.add('dark-mode');
+                themeToggle.textContent = '🌙';
+            }
+            
+            themeToggle.addEventListener('click', function() {
+                body.classList.toggle('dark-mode');
+                
+                if (body.classList.contains('dark-mode')) {
+                    localStorage.setItem('theme', 'dark');
+                    themeToggle.textContent = '🌙';
+                } else {
+                    localStorage.setItem('theme', 'light');
+                    themeToggle.textContent = '☀️';
+                }
+            });
+            
+            // Mobile Menu Toggle
+            const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+            const mobileMenu = document.querySelector('.mobile-menu');
+            
+            mobileMenuBtn.addEventListener('click', function() {
+                mobileMenu.classList.toggle('active');
+            });
+            
+            // Close mobile menu when clicking on a link
+            const mobileLinks = document.querySelectorAll('.mobile-menu a');
+            mobileLinks.forEach(link => {
+                link.addEventListener('click', function() {
+                    mobileMenu.classList.remove('active');
+                });
+            });
+            
+            // Hide mobile menu when resizing to desktop width
+            window.addEventListener('resize', function() {
+                if (window.innerWidth > 768) {
+                    mobileMenu.classList.remove('active');
+                }
+            });
+            
+            // Smooth scrolling for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('href');
+                    if (targetId === '#') return;
+                    
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 80,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+            
+            // Optional: Add scroll animation for elements
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.1
+            };
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('animate-in');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+            
+            // Observe feature cards for animation
+            document.querySelectorAll('.feature-card, .privacy-point, .screen-item').forEach(item => {
+                observer.observe(item);
+            });
+        });
+    </script>
+</body>
+</html> 
